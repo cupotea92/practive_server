@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tedo.mall.server.mapper.ItemMapper">
+    <select id="select" resultType="com.tedo.mall.server.pojo.vo.ItemVO">
+        SELECT item.id,item.category_id,item.name,item.price,item.image,item.item_desc,category.name AS category_name FROM item,category WHERE item.category_id=category.id AND item.id LIKE CONCAT('%', #{id}, '%') AND item.name LIKE CONCAT('%',#{name},'%') AND category_id LIKE CONCAT('%',#{categoryId},'%') AND item_desc LIKE CONCAT('%',#{itemDesc},'%')
+    </select>
+</mapper>
